@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-<<<<<<< HEAD
-=======
-import reportWebVitals from './reportWebVitals';
->>>>>>> 388cb63 (Initialize project using Create React App)
+import App from './pages/TaskTime/App';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
