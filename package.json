@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "task-time-control",
+=======
+  "name": "-n",
+>>>>>>> 388cb63 (Initialize project using Create React App)
   "version": "0.1.0",
   "private": true,
   "dependencies": {
