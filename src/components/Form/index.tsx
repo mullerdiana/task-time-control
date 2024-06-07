@@ -5,7 +5,7 @@ export function Form() {
   return (
     <form className={style.newTask}>
       <div className={style.inputContainer}>
-        <label htmlFor="task">Adicione a tarefa a ser executada</label>
+        <label htmlFor="task">Adicione a tarefa</label>
         <input
           type="text"
           name="task"
