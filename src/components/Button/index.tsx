@@ -1,9 +1,3 @@
-function Button() {
-    return (
-      <button>
-      Hello World
-      </button>
-    );
-  }
-  
-  export default Button;
+export function Button() {
+  return <button>Começar</button>;
+}
