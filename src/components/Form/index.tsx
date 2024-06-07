@@ -27,7 +27,8 @@ export function Form() {
         ></input>
       </div>
 
-      <Button />
+      <Button>Adicionar</Button> 
+
     </form>
   );
 }
