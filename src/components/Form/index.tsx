@@ -1,9 +1,30 @@
-import style from "./Form.module.scss";
+import { useState, Dispatch, SetStateAction } from "react";
 import { Button } from "../Button";
+import style from "./Form.module.scss";
+import { Task } from "../../types/task";
 
-export function Form() {
+interface FormProps {
+  setTasks: Dispatch<SetStateAction<Task[]>>;
+}
+
+export function Form({ setTasks }:FormProps) {
+  const [itemTask, setItemTask] = useState({ task: "", time: "00:00" });
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+
+    setItemTask((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+  const addTask = (e: React.FormEvent) => {
+    e.preventDefault();
+    setTasks((prevTasks: Task[]) => [...prevTasks, itemTask]);
+  };
+
   return (
-    <form className={style.newTask}>
+    <form className={style.newTask} onSubmit={addTask}>
       <div className={style.inputContainer}>
         <label htmlFor="task">Adicione a tarefa</label>
         <input
@@ -11,6 +32,8 @@ export function Form() {
           name="task"
           id="task"
           placeholder="Qual a tarefa"
+          value={itemTask.task}
+          onChange={handleChange}
           required
         ></input>
       </div>
@@ -23,12 +46,13 @@ export function Form() {
           id="time"
           min="00:00:00"
           max="01:30:00"
+          value={itemTask.time}
+          onChange={handleChange}
           required
         ></input>
       </div>
 
-      <Button>Adicionar</Button> 
-
+      <Button type="submit">Adicionar</Button>
     </form>
   );
 }
