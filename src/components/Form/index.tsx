@@ -2,6 +2,7 @@ import { useState, Dispatch, SetStateAction } from "react";
 import { Button } from "../Button";
 import style from "./Form.module.scss";
 import { Task } from "../../types/task";
+import {v4 as uuidv4} from 'uuid';
 
 interface FormProps {
   setTasks: Dispatch<SetStateAction<Task[]>>;
@@ -18,9 +19,13 @@ export function Form({ setTasks }: FormProps) {
       [name]: value,
     }));
   };
-  const addTask = (e: React.FormEvent) => {
+
+  const addTask = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTasks((prevTasks: Task[]) => [...prevTasks, itemTask]);
+    setTasks((prevTasks: Task[]) => [
+      ...prevTasks,
+      { ...itemTask, selected: false, completed: false, id: uuidv4() },
+    ]);
     setItemTask({ task: "", time: "00:00" });
   };
 
