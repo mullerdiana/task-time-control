@@ -7,7 +7,7 @@ interface FormProps {
   setTasks: Dispatch<SetStateAction<Task[]>>;
 }
 
-export function Form({ setTasks }:FormProps) {
+export function Form({ setTasks }: FormProps) {
   const [itemTask, setItemTask] = useState({ task: "", time: "00:00" });
 
   const handleChange = (e: any) => {
@@ -21,7 +21,7 @@ export function Form({ setTasks }:FormProps) {
   const addTask = (e: React.FormEvent) => {
     e.preventDefault();
     setTasks((prevTasks: Task[]) => [...prevTasks, itemTask]);
-    setItemTask({ task: "", time: "00:00" })
+    setItemTask({ task: "", time: "00:00" });
   };
 
   return (
