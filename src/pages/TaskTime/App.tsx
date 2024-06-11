@@ -10,7 +10,11 @@ function App() {
   const [selected, setSelected] = useState<Task>();
 
   function selectTask(selectedTask: Task){
-    setSelected(selectedTask)
+    setSelected(selectedTask);
+    setTasks(previousTasks => previousTasks.map(task => ({
+      ...task,
+      selected: task.id === selectedTask.id ? true : false
+    })))
   }
 
   return (

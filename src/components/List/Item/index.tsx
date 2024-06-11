@@ -22,7 +22,7 @@ export function Item({
   });
   return (
     <li
-      className={style.item}
+      className={`${style.item} ${selected ? style.itemSelected : ''}`}
       onClick={() =>
         selectTask({
           task,
