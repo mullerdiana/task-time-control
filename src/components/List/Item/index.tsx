@@ -1,5 +1,5 @@
 import { Task } from "../../../types/task";
-import style from "../List.module.scss";
+import style from "./Item.module.scss";
 
 interface Props extends Task {
   selectTask: (selectedTask: Task) => void;
@@ -13,13 +13,7 @@ export function Item({
   id,
   selectTask,
 }: Props) {
-  console.log("item atual: ", {
-    task,
-    time,
-    selected,
-    completed,
-    id,
-  });
+  
   return (
     <li
       className={`${style.item} ${selected ? style.itemSelected : ''}`}
