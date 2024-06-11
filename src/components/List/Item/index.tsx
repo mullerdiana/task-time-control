@@ -16,8 +16,8 @@ export function Item({
   
   return (
     <li
-      className={`${style.item} ${selected ? style.itemSelected : ''}`}
-      onClick={() =>
+      className={`${style.item} ${selected ? style.itemSelected : ''} ${completed ? style.itemCompleted : ''}`}
+      onClick={() => !completed &&
         selectTask({
           task,
           time,
@@ -29,6 +29,7 @@ export function Item({
     >
       <h3>{task}</h3>
       <span>{time}</span>
+      {completed && <span className="done"></span>}
     </li>
   );
 }
